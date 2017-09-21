@@ -105,19 +105,16 @@ class TaskController
 			switch ($_POST['sort_by'])
 			{
 				case 'is_done':
-					echo "<h3>Готовность задания</h3>";
 					$todoSort = $this->model->sortTaskDone();
 					$view .= $this->render(__DIR__ . '/../views/task/list.php', ['todo' => $todoSort]);
 					break;
 
 				case 'description':
-					echo "<h3>Описанию</h3>";
 					$todoSort = $this->model->sortTaskDescription();
 					$view .= $this->render(__DIR__ . '/../views/task/list.php', ['todo' => $todoSort]);
 					break;
 				
 				default:
-					echo "<h3>По умолчанию</h3>";
 					$todoSort = $this->model->findAll();
 					$view .= $this->render(__DIR__ . '/../views/task/list.php', ['todo' => $todoSort]);
 					break;
